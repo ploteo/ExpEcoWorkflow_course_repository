@@ -82,14 +82,53 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell" data-layout-align="center">
 
 </div>
+<section id="description" class="level2">
+<h2 class="anchored" data-anchor-id="description">Description</h2>
+<p>The course deals with the design of an experiment in social sciences and the management of the related data workflow . As a take-home assignment, participants are invited to develop their own experimental design and implement the related software.</p>
+<p>The following chart illustrates the workflow of the course.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-a25940893a43e9c19dbf" style="width:100%;height:100%;" class="grViz html-widget "></div>
-<script type="application/json" data-for="htmlwidget-a25940893a43e9c19dbf">{"x":{"diagram":"\n      digraph contents {\n\ngraph [compound = true, rankdir = LR, layout = dot]\n\nnode[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]\n\n\"Design\"\n\"Registration\"\n\"Programming\"\n\"Data collection\"\n\"Data organization\"\n\n\n\"Design\" -> \"Registration\" \n\"Registration\" -> \"Programming\"\n\"Programming\" -> \"Data collection\"\n\"Data collection\" -> \"Data organization\"\n\nnode[fontname = Helvetica, fontcolor = black,  shape=oval, style=empty, fontsize = 8, fixedsize = false]\n\n\"Methodology\"\n\"oTree\"\n\"OSF\"\n\"Prolific\"\n\n\"Methodology\" -> \"Design\" [arrowhead = none]\n\"OSF\" -> \"Registration\" [arrowhead = none]\noTree -> \"Programming\" [arrowhead = none]\nProlific -> \"Data collection\" [arrowhead = none]\n\"Render\" -> \"Data collection\" [arrowhead = none]\n\"R (tidyverse)\" -> \"Data organization\"[arrowhead = none]\n\n\nsubgraph cluster_0 {\n        graph[shape = rectangle]\n        style = filled\n        fontcolor= white\n        fontname = Helvetica\n        fillcolor = DeepSkyBlue\n        label = \"GitHub\"\n        \n        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]\n      \"Design\"\n      \"Registration\"\n      \"Programming\"\n      \"Data collection\"\n      \"Data organization\"\n        \n}\n\n}\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-3336aee3a6508ec76f0a" style="width:100%;height:100%;" class="grViz html-widget "></div>
+<script type="application/json" data-for="htmlwidget-3336aee3a6508ec76f0a">{"x":{"diagram":"\n      digraph contents {\n\ngraph [compound = true, rankdir = LR, layout = dot]\n\nnode[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]\n\n\"Design\"\n\"Registration\"\n\"Programming\"\n\"Data collection\"\n\"Data organization\"\n\n\n\"Design\" -> \"Registration\" \n\"Registration\" -> \"Programming\"\n\"Programming\" -> \"Data collection\"\n\"Data collection\" -> \"Data organization\"\n\nnode[fontname = Helvetica, fontcolor = black,  shape=oval, style=empty, fontsize = 8, fixedsize = false]\n\n\"Methodology\"\n\"oTree\"\n\"OSF\"\n\"Prolific\"\n\n\"Methodology\" -> \"Design\" [arrowhead = none]\n\"OSF\" -> \"Registration\" [arrowhead = none]\noTree -> \"Programming\" [arrowhead = none]\nProlific -> \"Data collection\" [arrowhead = none]\n\"Render\" -> \"Data collection\" [arrowhead = none]\n\"R (tidyverse)\" -> \"Data organization\"[arrowhead = none]\n\n\nsubgraph cluster_0 {\n        graph[shape = rectangle]\n        style = filled\n        fontcolor= white\n        fontname = Helvetica\n        fillcolor = DeepSkyBlue\n        label = \"GitHub\"\n        \n        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]\n      \"Design\"\n      \"Registration\"\n      \"Programming\"\n      \"Data collection\"\n      \"Data organization\"\n        \n}\n\n}\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<section id="calendar" class="level1">
-<h1>Calendar</h1>
+<ul>
+<li>Design
+<ul>
+<li>Methodological aspects of the design of an economic experiments are discussed in the classroom</li>
+</ul></li>
+<li>Registration
+<ul>
+<li>Illustration of the pre-registration process on <a href="https://osf.io/">OSF</a> with specific attention to hypotheses and data analysis</li>
+</ul></li>
+<li>Programming
+<ul>
+<li>Introduction to <a href="https://www.otree.org/">oTree</a> architecture and examples of experimental apps</li>
+</ul></li>
+<li>Data collection
+<ul>
+<li>Recruitment of participants via <a href="https://www.prolific.co/">Prolific</a> and online deployment on <a href="https://render.com/">render.com</a></li>
+</ul></li>
+<li>Data organization
+<ul>
+<li>Collection, organization and documentation of data in <a href="htpps://cran.r-project.org">R</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
+<ul>
+<li>Basic knowledge of experimental economics.</li>
+<li>Basic knowledge of computer programming.</li>
+<li>Access to a computer.
+<ul>
+<li>Installation of <a href="https://www.otree.org/">o-Tree software</a> (open source and free of charge).</li>
+<li>Installation of <a href="htpps://cran.r-project.org">R software</a> (open source and free of charge) and <a href="https://www.rstudio.com/">R Studio</a> (open source and free of charge).</li>
+</ul></li>
+</ul>
+</section>
+<section id="calendar" class="level2">
+<h2 class="anchored" data-anchor-id="calendar">Calendar</h2>
 <table class="table">
 <thead>
 <tr class="header">
@@ -127,21 +166,21 @@ ul.task-list li input[type="checkbox"] {
 <td>18/04</td>
 <td>09:00-12:00</td>
 <td>Lab1</td>
-<td>oTree: Questionnaires and individual decision making</td>
+<td>Design of an experiment (Laboratory)</td>
 </tr>
 <tr class="odd">
 <td>5</td>
 <td>27/04</td>
 <td>09:00-12:00</td>
 <td>Lab4</td>
-<td>oTree: Strategic interaction</td>
+<td>oTree: Questionnaires and individual decision making</td>
 </tr>
 <tr class="even">
 <td>6</td>
 <td>02/05</td>
 <td>09:00-12:00</td>
 <td>Lab4</td>
-<td>Design of an experiment (Laboratory)</td>
+<td>oTree: Strategic interaction</td>
 </tr>
 <tr class="odd">
 <td>7</td>
@@ -159,6 +198,18 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</section>
+<section id="evaluation" class="level2">
+<h2 class="anchored" data-anchor-id="evaluation">Evaluation</h2>
+<p>Students are asked to develop an experimental project in oTree. The project will be evaluated in terms of software functioning and originality.</p>
+</section>
+<section id="contacts" class="level2">
+<h2 class="anchored" data-anchor-id="contacts">Contacts</h2>
+<p>Matteo Ploner<br></p>
+<p><span class="iconify" data-icon="ri:building-4-line"></span> Department of Economics and Management, University of Trento <br> Via Inama 5 <br> 38123 Trento (Italy) <br></p>
+<p><span class="iconify" data-icon="material-symbols:mail-outline-rounded"></span> <a href="mailto:%20matteo.ploner@unitn.it">matteo.ploner@unitn.it</a></p>
+<p><span class="iconify" data-icon="mdi:web"></span> <a href="https://matteoploner.eco.unitn.it">https://matteoploner.eco.unitn.it</a></p>
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
 </section>
 
 </main>

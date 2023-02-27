@@ -1,0 +1,150 @@
+---
+title: "Experimental Economics: Data Workflow"
+subtitle: "Syllabus"
+author: "Matteo Ploner (DEM-CEEL,University of Trento, Italy)"
+date: "21 February 2023"
+date-format: long
+title-slide-attributes:
+    data-background-color: "#547980"
+    data-background-size: contain
+    data-background-opacity: "0.8"
+editor: visual
+theme: lumen
+#bibliography: ./bib.bib
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=6, fig.align="center", dpi=300}
+library(DiagrammeR)
+```
+
+
+
+## Description
+
+The course deals with the design of an experiment in social sciences and the management of the related data workflow . As a take-home assignment, participants are invited to develop their own experimental design and implement the related software.
+
+The following chart illustrates the workflow of the course.
+
+```{r echo=FALSE, fig.height=6, fig.width=8, message=FALSE, warning=FALSE, fig.align="center"}
+
+#| label: workflow
+#| fig-cap: "Workflow"
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+node[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]
+
+'Design'
+'Registration'
+'Programming'
+'Data collection'
+'Data organization'
+
+
+'Design' -> 'Registration' 
+'Registration' -> 'Programming'
+'Programming' -> 'Data collection'
+'Data collection' -> 'Data organization'
+
+node[fontname = Helvetica, fontcolor = black,  shape=oval, style=empty, fontsize = 8, fixedsize = false]
+
+'Methodology'
+'oTree'
+'OSF'
+'Prolific'
+
+'Methodology' -> 'Design' [arrowhead = none]
+'OSF' -> 'Registration' [arrowhead = none]
+oTree -> 'Programming' [arrowhead = none]
+Prolific -> 'Data collection' [arrowhead = none]
+'Render' -> 'Data collection' [arrowhead = none]
+'R (tidyverse)' -> 'Data organization'[arrowhead = none]
+
+
+subgraph cluster_0 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = 'GitHub'
+        
+        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]
+      'Design'
+      'Registration'
+      'Programming'
+      'Data collection'
+      'Data organization'
+        
+}
+
+}
+      ",
+    width = "100%",
+    height = "100%"
+)
+```
+
+- Design
+    - Methodological aspects of the design of an economic experiments are discussed in the classroom
+
+- Registration
+    - Illustration of the pre-registration process on [OSF](https://osf.io/) with specific attention to hypotheses and data analysis
+
+- Programming
+    - Introduction to [oTree](https://www.otree.org/) architecture and examples of experimental apps
+
+- Data collection
+    - Recruitment of participants via [Prolific](https://www.prolific.co/) and online deployment on [render.com](https://render.com/)
+
+- Data organization
+    - Collection, organization  and documentation of data in [R](htpps://cran.r-project.org)
+
+## Prerequisites
+
+- Basic knowledge of experimental economics.
+- Basic knowledge of computer programming.
+- Access to a computer.
+  - Installation of [o-Tree software](https://www.otree.org/) (open source and free of charge).
+  - Installation of [R software](htpps://cran.r-project.org) (open source and free of charge) and [R Studio](https://www.rstudio.com/) (open source and free of charge).
+
+
+## Calendar
+
+| Lecture  | Day  | Hour | Room | Topic|
+|---|---|---|---|--|
+| [1](./1/)  | 27/03  | 09:00-12:00 |Lab4 |Methodology |
+| 2  | 06/04  | 09:00-12:00 |Lab4 |oTree: Programming and management of experiments in oTree |
+| 3  | 11/04  | 09:00-12:00 |Lab1 |oTree: Fundamental components of an experiment|
+| 4  | 18/04  | 09:00-12:00 |Lab1 |Design of an experiment (Laboratory)|
+| 5  | 27/04  | 09:00-12:00 |Lab4 |oTree: Questionnaires and individual decision making|
+| 6  | 02/05  | 09:00-12:00 |Lab4 |oTree: Strategic interaction|
+| 7  |  09/05 | 09:00-12:00 |Lab4 |R: Data organization |
+| 8  | 30/05  | 09:00-12:00 |Lab4 |Projects' presentation + online implementation|
+
+## Evaluation
+
+Students are asked to develop an experimental project in oTree. The project will be evaluated in terms of software functioning and originality.
+
+## Contacts
+
+Matteo Ploner<br>
+
+<span class="iconify" data-icon="ri:building-4-line"></span>
+ Department of Economics and Management, University of Trento <br>
+Via Inama 5 <br>
+38123 Trento (Italy) <br>
+
+<span class="iconify" data-icon="material-symbols:mail-outline-rounded"></span>
+ [matteo.ploner@unitn.it](mailto: matteo.ploner@unitn.it)
+
+<span class="iconify" data-icon="mdi:web"></span>
+[https://matteoploner.eco.unitn.it](https://matteoploner.eco.unitn.it)
+
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
