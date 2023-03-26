@@ -1,0 +1,809 @@
+---
+title: 'Experimental Economics: Data Workflow'
+subtitle: 'Lecture 1: Introduction'
+author: 'Matteo Ploner'
+date: 'today'
+date-format: long
+title-slide-attributes:
+    data-background-color: "#547980"
+    data-background-size: contain
+    data-background-opacity: "4"
+format:
+    revealjs:
+        logo: ../logo-unitn.png
+        slide-number: c/t
+        toc: false # table of content true
+        controls: true
+        chalkboard: true
+        transition: slide
+        background-transition: fade
+        navigation-mode: vertical
+        controls-tutorial: true
+        html-math-method: mathjax
+        theme: default
+        resources:
+            - "../header.html"
+        # logo: unitn_logo.png
+        menu:
+            side: left
+            width: wide
+        footer: <span style='color:#547980'> M. Ploner - Experimental Economics &#x3A; Data Workflow </span>
+    html:
+        embed-resources: true
+        number-sections: true
+        toc: true
+editor: visual
+css: ../mystyles.css
+bibliography: ../ploteo_biblio.bib
+editor_options:
+  markdown:
+    wrap: 72
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+options("kableExtra.html.bsTable" = T)#force kableExtra to load the css for you
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(gridExtra)
+library(DiagrammeR)
+```
+
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Roboto&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+
+# Our Course {background-color="#547980"} 
+
+## The Data Workflow
+
+-   The course deals with the design of an experiment in social sciences
+    and the management of the related data workflow
+    -   From Design to Data Organization
+
+```{r echo=FALSE, fig.height=6, fig.width=8, message=FALSE, warning=FALSE, fig.align="center"}
+
+#| label: workflow
+#| fig-cap: "Workflow"
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+node[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]
+
+'Design'
+'Registration'
+'Programming'
+'Data collection'
+'Data organization'
+
+
+'Design' -> 'Registration' 
+'Registration' -> 'Programming'
+'Programming' -> 'Data collection'
+'Data collection' -> 'Data organization'
+
+node[fontname = Helvetica, fontcolor = black,  shape=oval, style=empty, fontsize = 8, fixedsize = false]
+
+'Methodology'
+'oTree'
+'OSF'
+'Prolific'
+
+'Methodology' -> 'Design' [arrowhead = none]
+'OSF' -> 'Registration' [arrowhead = none]
+oTree -> 'Programming' [arrowhead = none]
+Prolific -> 'Data collection' [arrowhead = none]
+'Render' -> 'Data collection' [arrowhead = none]
+'R (tidyverse)' -> 'Data organization'[arrowhead = none]
+
+
+subgraph cluster_0 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = 'GitHub'
+        
+        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]
+      'Design'
+      'Registration'
+      'Programming'
+      'Data collection'
+      'Data organization'
+        
+}
+
+}
+      ",
+    width = "100%",
+    height = "100%"
+)
+```
+
+## The Data Workflow (ii) {.smaller}
+
+```{r echo=FALSE, fig.height=4, fig.width=6, message=FALSE, warning=FALSE, fig.align="center"}
+
+#| label: workflow
+#| fig-cap: "Workflow"
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+node[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]
+
+'Design'
+'Registration'
+'Programming'
+'Data collection'
+'Data organization'
+
+
+'Design' -> 'Registration' 
+'Registration' -> 'Programming'
+'Programming' -> 'Data collection'
+'Data collection' -> 'Data organization'
+
+node[fontname = Helvetica, fontcolor = black,  shape=oval, style=empty, fontsize = 8, fixedsize = false]
+
+'Methodology'
+'oTree'
+'OSF'
+'Prolific'
+
+'Methodology' -> 'Design' [arrowhead = none]
+'OSF' -> 'Registration' [arrowhead = none]
+oTree -> 'Programming' [arrowhead = none]
+Prolific -> 'Data collection' [arrowhead = none]
+'Render' -> 'Data collection' [arrowhead = none]
+'R (tidyverse)' -> 'Data organization'[arrowhead = none]
+
+
+subgraph cluster_0 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = 'GitHub'
+        
+        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]
+      'Design'
+      'Registration'
+      'Programming'
+      'Data collection'
+      'Data organization'
+        
+}
+
+}
+      ",
+    width = "80%",
+    height = "80%"
+)
+```
+
+-   Design
+    -   Methodological aspects of the design of an economic experiments
+        are discussed in the classroom
+-   Registration
+    -   Illustration of the pre-registration process on
+        [OSF](https://osf.io/) with specific attention to hypotheses and
+        data analysis
+-   Programming
+    -   Introduction to [oTree](https://www.otree.org/) architecture and
+        examples of experimental apps
+-   Data collection
+    -   Recruitment of participants via
+        [Prolific](https://www.prolific.co/) and online deployment on
+        [render.com](https://render.com/)
+-   Data organization
+    -   Collection, organization and documentation of data in
+        [R](htpps://cran.r-project.org)
+
+
+## Prerequisites
+
+- Basic knowledge of experimental economics.
+- Basic knowledge of computer programming.
+- Access to a computer.
+  - Installation of [o-Tree software](https://www.otree.org/) (open source and free of charge).
+  - Installation of [R software](htpps://cran.r-project.org) (open source and free of charge) and [R Studio](https://www.rstudio.com/) (open source and free of charge).
+
+
+## Calendar
+
+| Lecture  | Day  | Hour | Room | Topic|
+|---|---|---|---|--|
+| [1](./1/)  | 27/03  | 09:00-12:00 |Lab4 |Intro and Methodology |
+| 2  | 06/04  | 09:00-12:00 |Lab4 |oTree: Programming and management of experiments in oTree |
+| 3  | 11/04  | 09:00-12:00 |Lab1 |oTree: Fundamental components of an experiment|
+| 4  | 18/04  | 09:00-12:00 |Lab1 |Design of an experiment (Laboratory)|
+| 5  | 27/04  | 09:00-12:00 |Lab4 |oTree: Questionnaires and individual decision making|
+| 6  | 02/05  | 09:00-12:00 |Lab4 |oTree: Strategic interaction|
+| 7  |  09/05 | 09:00-12:00 |Lab4 |R: Data organization |
+| 8  | 30/05  | 09:00-12:00 |Lab4 |Projects' presentation + online implementation|
+
+## Evaluation
+
+- Students are asked to develop an experimental project in oTree. 
+
+- The project will be evaluated in terms of software functioning and originality.
+
+
+# Modules {background-color="#547980"} 
+
+## Modules 1-2: Design of experiments
+
+- Scientific Method
+    - Controlled manipulation
+- Methodology of Experimental Economics
+    - Building blocks
+- Open science and replicability
+    - Pre-registration
+    - Transparency of procedures
+
+## Module 3: Programming
+
+- Creation of apps in oTree
+    - Individual decision making
+    - Strategic interaction
+- Deployment of the app to a server
+
+## Modules 4-5: Data collection and organization
+
+- Data wrangling
+    - Tidy data
+- Open reports
+    - R markdown
+    - Replication material
+
+# Software Requirements {background-color="#547980"} 
+
+## Editor
+
+::: columns
+::: {.column width="50%"}
+-   I am using [Visual Studio Code](https://code.visualstudio.com/) on
+    macOS
+    -   It is free and open source
+    -   It is cross-platform
+-   I will use it for *oTree*, *R* and *Github*
+    -   Handling of python, R and markdown files
+-   However, It is possible to use any text editor
+    -   [Sublime Text](https://www.sublimetext.com/)
+    -   [Atom](https://atom.io/)
+    -   [Notepad++](https://notepad-plus-plus.org/)
+    -   [Vim](https://www.vim.org/)
+    -   [Emacs](https://www.gnu.org/software/emacs/)
+:::
+
+::: {.column width="50%"}
+<iframe src="https://www.youtube.com/embed/B-s71n0dHUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+
+</iframe>
+:::
+:::
+
+## oTree
+
+-   [oTree](http://www.otree.org/) is a framework based on
+    [Python](https://www.python.org/) to run controlled experiments
+    -   Games
+    -   Questionnaires
+    -   ...
+-   Support by the community
+    -   [Forum](https://groups.google.com/forum/#!forum/otree)
+    -   Code developed by others
+        -   e.g. @holzmeister2017otree
+    -   [Snippets](https://www.otreehub.com/projects/otree-snippets/)
+-   oTree is open-source,
+    -   Licensed under an adaptation of the MIT license.
+        -   Cite it in the paper when you use it
+
+## oTree: Code
+
+-   Programming language of oTree is **Python**
+    -   Popular object-oriented programming language
+    -   Developed in early 90's by [Guido Van
+        Rossum](https://en.wikipedia.org/wiki/Guido_van_Rossum)
+-   OTree's user interface is based on **HTML5**
+    -   Supported by modern browser and rich in functionalities
+        -   Can be enriched with
+            -   css
+            -   javascript
+            -   bootstrap
+            -   ...
+-   All the components of oTree are free and open-source
+
+## oTree: Functioning
+
+::: columns
+::: {.column width="70%"}
+-   The basic setup consists in
+    -   An *app (experiment)* written within oTree
+    -   A *server* computer
+        -   Cloud server, local PC ...
+    -   Subjects' *devices* with a browser
+        -   PC, Laptop, Tablet, Mobile Phone ...
+-   oTree creates a session on the server and generates links for all
+    participants
+-   Participants click on the links and are sent to a personal page
+    -   They submit their answers, which are collected by the server
+    -   The experimenter can check the progress on the server
+:::
+
+::: {.column width="20%"}
+```{r echo=FALSE, fig.align="center", fig.height=8, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+subgraph cluster_0 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = 'Device 1'
+        
+        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]
+        
+        Browser_0[label = 'Browser']
+}
+
+subgraph cluster_1 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = 'Device 2'
+        
+ node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10,fixedsize = true, width=1.5]
+        
+        Browser_1[label = 'Browser']
+}
+
+subgraph cluster_2 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = '...'
+        
+        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, width=1.5, fixedsize = true]
+        
+        Browser_2[label = 'Browser']
+}
+
+subgraph cluster_3 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = Green
+        label = 'Server'
+        
+        node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, width=1.5, fixedsize = true]
+        
+        oTree[label = 'oTree App']
+}
+
+
+edge [ arrowhead = normal, arrowtail = normal,  dir = both]
+
+Browser_0 -> oTree;
+Browser_1 -> oTree;
+Browser_2 -> oTree;
+
+
+# Elements of each cluster
+
+edge [arrowhead = none, arrowtail = none]
+node [fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width=1.5, style=filled, fillcolor = MintCream, fontsize=8]
+
+}
+
+      ",
+    width = "100%",
+    height = "80%"
+)
+```
+:::
+:::
+
+## R
+
+-   [R](https://www.r-project.org/) is a programming language and
+    software environment for statistical computing and graphics
+    -   Developed in 1993 by Ross Ihaka and Robert Gentleman
+        [@ihaka1996r]
+    -   It is free and open source
+    -   It is cross-platform
+
+``` r
+R version 4.2.2 (2022-10-31) -- "Innocent and Trusting"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-apple-darwin17.0 (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+```
+
+
+## Your data in good shape <span class="iconify" data-icon="openmoji:broom" data-inline="false"></span>
+
+- **Data Wrangling** is "**the art of getting your data into R in a useful form for visualization and modeling**" [@wickham2016r]
+
+- We rely on the [tidyverse](https://www.tidyverse.org/) library
+  - *The tidyverse is an opinionated collection of R packages designed for data science. All packages share an underlying design philosophy, grammar, and data structures.*
+
+```r 
+library(tidyverse)
+── Attaching packages ───────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.2 ──
+✔ ggplot2 3.4.0      ✔ purrr   1.0.1 
+✔ tibble  3.1.8      ✔ dplyr   1.0.10
+✔ tidyr   1.3.0      ✔ stringr 1.5.0 
+✔ readr   2.1.3      ✔ forcats 0.5.2 
+```
+
+
+- [On-line resources about tidyverse](https://www.tidyverse.org/learn/) 
+
+
+## Github
+
+-   The material of the course is available on
+    [Github](https://github.com/)
+    -   The repository is
+        [here](https://github.com/otree-org/otree-course)
+        -   You can download the material from there
+-   Github is a web-based hosting service for version control using
+    *Git*
+    -   It offers all of the distributed version control and source code
+        management functionality of Git as well as adding its own
+        features
+    -   It provides access control and several collaboration features
+        such as bug tracking, feature requests, task management, and
+        wikis for every project\
+    -   It offers all of the distributed version control and source code
+        management functionality of Git as well as adding its own
+        features
+-   Students will deliver their code to Github as well
+    -   You must open a Github account!
+
+## What is Git?
+
+-   Git is a *version control system* (VCS)
+    -   It is a tool to manage your source code history
+    -   It allows you to track changes in your files
+    -   It allows you to collaborate with other developers
+    -   Consult the book [Pro Git](https://git-scm.com/book/en/v2/)
+        [@chacon2014pro] for more information
+-   Version control is a system that records changes to a file or set of
+    files over time
+    -   A common approach
+        -   **My_thesis.tex → My_thesis_1.tex → My_thesis_2.tex → ...
+            My_thesis_29.tex**
+            -   Messy!
+-   In Local Version Control Systems (VCSs) a database keeps tack of
+    changes to files
+    -   Fully trackable
+    -   Reversible changes
+
+## The lifecycle of a file in Git
+
+![](./lifecycle.png){width="70%"} <br> [@chacon2014pro] <br>
+
+-   A file in a directory can be either *tracked* or *untracked*.
+    -   Tracked files files that Git knows about
+        -   They can be unmodified, modified, or staged
+    -   Untracked files are everything else
+        -   They can be tracked by adding them to the staging area
+
+## Git: initialize and commit {.smaller}
+
+::::{.columns}
+:::{.column width="45%"}
+
+-   Open a terminal and move to your working directory
+    -   `cd PATH_TO_YOUR_WORKING_DIRECTORY`
+    -   In this example, the directory contains a file 'Hello_world.txt'
+        that displays "Hello"
+-   1\) Initialize a Git repository
+    -   `git init`
+-   2\) Add the file to the staging area
+    -   `git add Hello_world.txt`
+-   3\) Commit the file
+    -   `git commit -m "First commit"`
+-   If we modify the file and add a new line "**World!**"
+    -   `git status`
+        -   modified: Hello_world.txt
+:::
+
+:::{.column width="5%"}
+
+:::
+
+:::{.column width="45%"}
+-   Redo steps 2 and 3
+    -   `git add Hello_world.txt`
+    -   if you are happy :) about the change → commit it
+        -   `git commit -m "Added World!"`
+    -   if you are unhappy :( with the change remove it
+        -   `git reset HEAD Hello_world.txt`
+        -   `git checkout Hello_world.txt`
+            -   You are back to the previous version of the file
+:::
+::::
+
+## Git: branching 
+
+-   There is a main line of development
+    -   You can diverge from it to "explore" new versions
+    -   It is convenient to develop workflows that *branch and merge*
+        often
+    -   It is a good practice to keep the main line of development clean
+        -   It is the version that is used in production
+        -   It is the version that is used to create new branches
+
+::: columns
+::: {.column width="50%"}
+```{r echo=FALSE, fig.align="center", fig.height=8, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+edge[arrowhead = none, arrowtail = normal, dir = both]
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+'Snapshot A' -> 'Snapshot B'  
+'Snapshot B' -> 'Snapshot C'
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = MintCream, fontsize = 8]
+
+edge[arrowhead = normal, arrowtail = none, dir = both]
+
+Master -> 'Snapshot C'
+Development -> 'Snapshot C'
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = Salmon, fontsize = 8]
+
+Head -> master
+
+}
+ ",
+    width = "100%",
+    height = "100%"
+)
+
+
+
+```
+:::
+
+::: {.column width="50%"}
+-   When you start a commit a *Master* branch is created with all the
+    commits made so far
+    -   The *Head* is the last commit
+-   To start a new branch
+    -   `git branch development`
+:::
+:::
+
+## Basic commands: branching (iii)
+
+
+```{r echo=FALSE, fig.align="center", fig.height=8, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+edge[arrowhead = none, arrowtail = normal, dir = both]
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+'Snapshot A' -> 'Snapshot B'  
+'Snapshot B' -> 'Snapshot C'
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = MintCream, fontsize = 8]
+
+edge[arrowhead = normal, arrowtail = none, dir = both]
+
+master -> 'Snapshot C'
+development -> 'Snapshot C'
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = Salmon, fontsize = 8]
+
+Head -> development
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+
+
+
+}
+ ",
+    width = "90%",
+    height = "90%"
+)
+
+```
+- To switch to the new branch
+    - `git checkout development`
+      - You are now in the new branch
+
+## Development of a new branch
+
+```{r echo=FALSE, fig.align="center", fig.height=8, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+edge[arrowhead = none, arrowtail = normal, dir = both]
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+'Snapshot A' -> 'Snapshot B'  
+'Snapshot B' -> 'Snapshot C'
+'Snapshot C' -> 'Snapshot D' 
+'Snapshot D' -> 'Snapshot E' 
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = MintCream, fontsize = 8]
+
+edge[arrowhead = normal, arrowtail = none, dir = both]
+
+master -> 'Snapshot C'
+development -> 'Snapshot E'
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = Salmon, fontsize = 8]
+
+Head -> development
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+
+
+
+}
+ ",
+    width = "100%",
+    height = "100%"
+)
+
+```
+
+  - If you make new commits now you are in the *development* branch
+        - You can make as many commits as you want
+        - You can make as many branches as you want
+        - You can switch between branches as you want
+    - Master is still pointing at Snapshot C
+        - Modify 'Hello World!' with the line '**Hello World, I am
+          developing**'
+          - `git commit -a -m "Modified Hello World"`
+        - Modify 'Hello World!' with the line '**Hello World, I am
+          developing a new feature!**'
+          - `git commit -a -m "Modified again Hello World"`
+         
+
+## Merging branches
+
+```{r echo=FALSE, fig.align="center", fig.height=8, fig.width=4, message=FALSE, warning=FALSE, fig.align='center'}
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot]
+
+edge[arrowhead = none, arrowtail = normal, dir = both]
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+'Snapshot A' -> 'Snapshot B'  
+'Snapshot B' -> 'Snapshot C'
+'Snapshot C' -> 'Snapshot D' 
+'Snapshot D' -> 'Snapshot E' 
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = MintCream, fontsize = 8]
+
+edge[arrowhead = normal, arrowtail = none, dir = both]
+
+master -> 'Snapshot E'
+
+node[fontname = Helvetica, fontcolor = black, shape = box, fixedsize = true, width = 1.5, style = filled, fillcolor = Salmon, fontsize = 8]
+
+Head -> master
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, fixedsize = true, width = 1.5, style = filled, fillcolor = yellow, fontsize = 8]
+
+
+}
+ ",
+    width = "100%",
+    height = "100%"
+)
+
+```
+
+-  When you are done with the development of the new branch
+    -   You can merge it with the master branch
+        - `git checkout master`
+        - `git merge development`
+    -   You are now back in the main branch
+    -   The main branch now contains the new commits
+
+## Git: status, log, diff
+
+- Commands to understand the state of the repository
+    -  `git status`
+        -   Shows the status of the repository
+    -  `git log`
+        -   Shows the history of the repository
+    -  `git diff`
+        -   Shows the differences between the current state and the last
+            commit
+
+# Appendix {background-color="#547980"} 
+
+## Assignment 
+
+1. Install *Git* on your computer
+    - Reproduce the lifecycle of the example **Hello_world.txt** above
+
+2. Install *oTree* on you computer
+    - Follow steps [here](https://otree.readthedocs.io/en/latest/install-nostudio.html#install-nostudio)
+
+3. Install *R* on your computer
+    - Follow steps [here](https://www.r-project.org/)
+
+## Resources {.scrollable}
+
+### oTree
+
+- [Docs](https://otree.readthedocs.io/en/latest/index.html)
+- [Demo Apps](https://www.otreehub.com/projects/?featured=1)
+
+### R
+
+- [R graph Gallery](https://r-graph-gallery.com/)
+
+### Git
+
+-   [Git Book](https://git-scm.com/book/en/v2/)
+-   [Git Cheat
+    Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+-   [Git training
+    Manual](https://github.com/githubtraining/training-manual)
+
+## References {.scrollable background-color="#547980"} 
+
+
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
+
