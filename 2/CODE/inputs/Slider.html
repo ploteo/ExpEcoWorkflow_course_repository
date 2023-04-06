@@ -1,0 +1,27 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Slider
+{% endblock %}
+
+{% block content %}
+
+<div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text">Disagree</span>
+    </div>
+
+    <input type="range" name="input_slider" min="1" max="9" step="1">
+
+    <div class="input-group-append">
+        <span class="input-group-text">Agree</span>
+    </div>
+</div> 
+
+{{ form.input_slider.errors }}
+
+<br>
+{% next_button %}
+
+{% endblock %}

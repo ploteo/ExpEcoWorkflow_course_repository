@@ -1,0 +1,62 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.5);
+        margin:0px 0px 0px 0px;
+      }
+   </style>
+{% endblock %}
+
+{% block title %}
+    Table
+{% endblock %}
+
+{% block content %}
+
+
+<div style="font-size: 24px; font-weight: bold" >
+The number is {{player.display_value }}
+</div>
+<br>
+
+The number is:
+<!-- submitted answer -->
+<table class="table table-bordered">
+  <tbody>
+    <tr>
+      <td>
+    <button name="tab_1" value="True" class="btn btn-outline-primary" btn-lg">1</button>
+</td>
+      <td> <button name="tab_2" value="True" class="btn btn-outline-primary" btn-lg">2</button>
+      </td>
+      <td> <button name="tab_3" value="True" class="btn btn-outline-primary" btn-lg">3</button></td>
+    </tr>
+    <tr>
+      <td><button name="tab_4" value="True" class="btn btn-outline-primary" btn-lg">4</button></td>
+      <td><button name="tab_5" value="True" class="btn btn-outline-primary" btn-lg">5</button></td>
+      <td><button name="tab_6" value="True" class="btn btn-outline-primary" btn-lg">6</button></td>
+    </tr>
+    <tr>
+      <td ><button name="tab_7" value="True" class="btn btn-outline-primary" btn-lg">7</button></td>
+      <td><button name="tab_8" value="True" class="btn btn-outline-primary" btn-lg">8</button></td>
+      <td><button name="tab_9" value="True" class="btn btn-outline-primary" btn-lg">9</button></td>
+    </tr>
+  </tbody>
+</table>
+
+{{ form.tab_1.errors }}
+{{ form.tab_2.errors }}
+{{ form.tab_3.errors }}
+{{ form.tab_4.errors }}
+{{ form.tab_5.errors }}
+{{ form.tab_6.errors }}
+{{ form.tab_7.errors }}
+
+
+
+
+
+{% endblock %}

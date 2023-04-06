@@ -1,0 +1,26 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Button
+{% endblock %}
+
+{% block content %}
+
+
+<div style="font-size: 24px; font-weight: bold" >
+The number is {{player.display_value }}
+</div>
+<br>
+<!-- submitted answer -->
+
+<div style="font-size: 24px">
+  The number is:
+  <button name="input_button" value="Even" class="btn btn-outline-primary" btn-lg">Even</button>
+  <button  name="input_button" value="Odd" class="btn btn-outline-primary" btn-lg">Odd</button>
+</div>
+<br>
+
+{{ form.input_button.errors }} <!-- to display errors-->
+
+{% endblock %}

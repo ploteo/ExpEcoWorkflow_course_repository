@@ -5,7 +5,7 @@
 | Lecture  | Day  | Hour | Room | Topic|
 |---|---|---|---|--|
 | [1](./1/)  | 27/03  | 09:00-12:00 |Lab4 |Inro and Methodology |
-| 2  | 06/04  | 09:00-12:00 |Lab4 |oTree: Programming and management of experiments in oTree |
+| [2](./2/)  | 06/04  | 09:00-12:00 |Lab4 |oTree: Programming and management of experiments in oTree |
 | 3  | 11/04  | 09:00-12:00 |Lab1 |oTree: Fundamental components of an experiment|
 | 4  | 18/04  | 09:00-12:00 |Lab1 |Design of an experiment (Laboratory)|
 | 5  | 27/04  | 09:00-12:00 |Lab4 |oTree: Questionnaires and individual decision making|

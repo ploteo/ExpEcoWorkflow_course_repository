@@ -1,0 +1,135 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Slider
+{% endblock %}
+
+{% block content %}
+<div class="float-left labels"> Disagree</div>
+<div class="float-right labels">Agree</div>
+ <input type="range" min="1" max="9" class="slider" id="MyRange" name="input_slider" value="5"> 
+ 
+  <!-- <p style="font-size:18pt;color:blue">Value: <span id="input_slider"></span> -->
+<!-- -->
+
+
+{% next_button %}
+
+{{ form.input_slider.errors }}
+
+{% endblock %}
+{% block styles %}
+
+<style>
+    .myDiv {
+        border: 0px outset red;
+        background-color: #ebebeb;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .slidecontainer {
+        width: 100%;
+        /* Width of the outside container */
+    }
+
+    /* The slider itself */
+    .slider {
+        -webkit-appearance: none;
+        /* Override default CSS styles */
+        appearance: none;
+        width: 100%;
+        /* Full-width */
+        height: 25px;
+        /* Specified height */
+        background: #d3d3d3;
+        /* Grey background */
+        outline: .1;
+        /* Remove outline */
+        opacity: 0.7;
+        /* Set transparency (for mouse-over effects on hover) */
+        -webkit-transition: .2s;
+        /* 0.2 seconds transition on hover */
+        transition: opacity .2s;
+    }
+
+    /* Mouse-over effects */
+    .slider:hover {
+        opacity: 1;
+        /* Fully shown on mouse-over */
+    }
+
+    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+    .slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        /* Override default look */
+        appearance: none;
+        width: 50px;
+        /* Set a specific slider handle width */
+        height: 25px;
+        /* Slider handle height */
+        background: #4CAF50;
+        /* Green background */
+        cursor: pointer;
+        /* Cursor on hover */
+    }
+
+    .slider::-moz-range-thumb {
+        width: 25px;
+        /* Set a specific slider handle width */
+        height: 25px;
+        /* Slider handle height */
+        background: #4CAF50;
+        /* Green background */
+        cursor: pointer;
+        /* Cursor on hover */
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+
+<!-- to display the value in the confirmation-->
+<script>
+    function myFunction() {
+        var x = document.getElementById("MyRange").value;
+        document.getElementById("value").innerHTML = x;
+    }
+</script>
+
+
+</script>
+<!-- to display the value -->
+
+<!-- to control visibility of the confirmation-->
+
+<script>
+    function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if (e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+
+    <
+    !--to control visibility of the confirmation-- >
+</script>
+
+<script>
+    $(document).ready(function () {});
+</script>
+
+<script>
+    var slider = document.getElementById("MyRange");
+    var output = document.getElementById("input_slider");
+    output.innerHTML = slider.value; // Display the default slider value
+
+    // Update the current slider value (each time you drag the slider handle)
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+</script>
+
+{% endblock %}

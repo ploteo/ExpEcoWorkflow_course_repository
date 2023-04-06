@@ -1,0 +1,19 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Text input
+{% endblock %}
+
+{% block content %}
+<div style="font-size: 24px; font-weight: bold" >
+The number is {{player.display_value }}
+</div>
+<br>
+
+<div style="font-size: 24px">
+{% formfield player.input_text label="The number is:"%}
+</div>
+{% next_button %}
+
+{% endblock %}

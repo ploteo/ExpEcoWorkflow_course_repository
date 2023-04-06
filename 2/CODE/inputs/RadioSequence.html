@@ -1,0 +1,30 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block styles %}
+   <style>
+      input[type=radio] {
+        transform: scale(1.2);
+        margin:12px -20px 0px -30px;
+      }
+   </style>
+{% endblock %}
+
+
+{% block title %}
+    Radio sequence
+{% endblock %}
+
+{% block content %}
+<div style="font-size: 24px; font-weight: bold" >
+The number is {{player.display_value }}
+</div>
+<br>
+
+<div style="font-size: 24px">
+{% formfield player.input_radiosequence label="The number is:"%}
+</div>
+
+    {% next_button %}
+
+{% endblock %}
