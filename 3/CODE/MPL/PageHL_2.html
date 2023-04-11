@@ -1,0 +1,70 @@
+{{ block styles }}
+   <style>
+      input[type=radio] {
+        transform: scale(1.1);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{{ endblock }}
+
+{{ block content }}
+
+
+<h1> Choice </h1>
+
+<div class="container p-3 my-3 border" style="font-size:14pt">
+  <p align = "justify"> In each of the following 10 rows in the table, please select your preferred option between A and B. </p>
+  <p>When done, please click on the button "Continue".</p>
+  <p align = "justify"> After you have chosen, one row will be randomly chosen and the lottery you chose will be played. <br> The outcome of this lottery will be paid to you.
+  </p>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" colspan="1">Lottery</th> 
+      <th scope="col" colspan="2" style="text-align:center">A</th>
+      <th scope="col" colspan="1" style="text-align:center"></th>     
+      <th scope="col" colspan="2" style="text-align:center">B</th>
+      <th scope="col" colspan="2" style="text-align:center">My Choice</th>
+    </tr>
+  </thead>
+
+  {{ for i in Lott }}
+  <tr>
+      {{ for j in i }}
+        <td style="text-align:center">
+      {{ j }}
+        </td>
+      {{ endfor }}
+      <td style="text-align:center">
+      &nbsp; &nbsp;  A<input type="radio" id="HL_{{forloop.counter}}" name="HL_{{forloop.counter}}" value="A">
+      </td>
+      <td style="text-align:center">
+      &nbsp;&nbsp;  B <input type="radio" id="HL_{{forloop.counter}}" name="HL_{{forloop.counter}}" value="B">
+      </td>
+  </tr>
+  {{ endfor }}
+</table>
+
+
+</div>
+        <div class="container">
+        	<div class="row">
+        		&nbsp;
+        	</div>
+        	<div class="row" style="padding-left:135px;">
+        		<div class="col-md-10">
+
+        		</div>
+        		<div class="col-md-2">
+              <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+                  <span style="font-size:18pt">Continue</span>
+             </button>
+        		</div>
+
+        	</div>
+        </div>
+
+
+
+{{ endblock }} -->

@@ -1,0 +1,55 @@
+{{ block content }}
+
+<h1> Results </h1>
+
+<div class="container border" style="font-size:14pt">
+		<p> <b>Row #{{row}}</b> was randomly selected for payment.</p>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col" colspan="2" style="text-align:center">A</th>
+					<th scope="col" ></th>
+					<th scope="col" colspan="2"  style="text-align:center">B</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+		<tr>
+			<th scope="row">{{row}}</th>
+			<td>{{p_A_1}}/10 of €{{Constants.A_h}} </td>
+			<td> {{p_A_2}}/10 of €{{Constants.A_l}}</td>
+		<td></td>
+			<td>{{p_B_1}}/10 of €{{Constants.B_h}}</td>
+			<td>{{p_B_2}}/10 of €{{Constants.B_l}} </td>
+		</tr>
+
+		</table>
+<!-- The lottery chosen -->
+		<p>You chose Lottery <b>{{choice}}</b></p>
+
+<p> The randomly drawn value that defines the outcome of the lottery is {{value}}.</p>
+
+<p> Thus, you earn <b>{{player.payoff}}</b></p>
+<p> Your participant code is {{player.participant.code}}</p>
+</div>
+
+
+<div class="container">
+	<div class="row">
+		&nbsp;
+	</div>
+	<div class="row" style="padding-left:130px;">
+		<div class="col-md-10">
+
+		</div>
+		<div class="col-md-2">
+			<button class="otree-btn-next btn btn-primary">
+			  <span style="font-size:18pt">Continue</span>
+			</button>
+		</div>
+	</div>
+</div>
+
+
+{{ endblock }}

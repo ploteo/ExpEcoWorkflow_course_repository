@@ -1,0 +1,68 @@
+{{ block styles }}
+   <style>
+      input[type=radio] {
+        transform: scale(1.1);
+        margin: 12px -10px 0px -30px;
+      }
+   </style>
+{{ endblock }}
+
+{{ block content }}
+
+<h1>Instructions</h1>
+
+<div class="container border" style="font-size:12pt">
+  <h2> Part 1 </h2>
+
+      <p>In the first part of the experiment you are going to choose between couples of lotteries. </p>
+
+      <p>The following is an example of the decision setting you are facing</p>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col" colspan="2" style="text-align:center">A</th>
+            <th scope="col" ></th>
+            <th scope="col" colspan="2"  style="text-align:center">B</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td > p/10 of €A<sub>1</sub>  </td>
+            <td> (1-p)/10 of €A<sub>2</sub></td>
+            <td style="font-weight: bold">{{ form.HL }}</td>
+            <td>p/10 of €B<sub>1</sub></td>
+            <td >(1-p)/10 of €B<sub>2</sub> </td>
+          </tr>
+        </tbody>
+        </table>
+
+<p>You must choose between lottery A and lottery B, with lottery A delivering €A<sub>1</sub> with probability p/10 and €A<sub>2</sub> with probability (1-p)/10.</p>
+<p>Similarly, lottery B delivers €B<sub>1</sub> with probability p/10 and €B<sub>2</sub> with probability (1-p)/10.</p> <p>You will face 10 choices between A and B, with p changing across choices.</p>
+<p>All your earnings are virtual, no cash is going to be paid to you. However, choose as if the monetary stakes were real.</p>
+
+</div>
+
+<br>
+
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    &nbsp;
+  </div>
+  <div class="row" style="padding-left:135px;">
+    <div class="col-md-10">
+
+    </div>
+    <div class="col-md-2">
+      <button name="btn_submit" value="True" class="btn btn-primary btn-large">
+         <span style="font-size:14pt">Continue</span>
+     </button>
+    </div>
+  </div>
+</div>
+
+
+
+{{ endblock }}

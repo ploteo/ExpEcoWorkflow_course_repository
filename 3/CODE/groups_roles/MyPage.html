@@ -1,0 +1,75 @@
+
+{{ block scripts }}
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+{{ endblock }}
+
+
+{{ block title }}
+    Round: {{ round }}
+{{ endblock }}
+
+{{ block content }}
+
+<h2>{{Constants.matching}}</h2>
+
+<div class="container" style="border:1px solid">
+    <div class="row" style="border:1px solid">
+        <div class="col-sm">
+             
+        </div>
+        <div class="col-sm">
+            ID
+        </div>
+        <div class="col-sm">
+            Type
+        </div>
+        <div class="col-sm">
+            Value
+        </div>
+    </div>
+    <div class="row" style="border:1px solid">
+        <div class="col-sm">
+        Self
+        </div>
+        <div class="col-sm">
+        {{player_current_id}}
+        </div>
+        <div class="col-sm">
+        {{ if player_current_type == 'BLUE' }}
+        <span class="iconify" data-icon="carbon:face-satisfied-filled" data-inline="false" style="color: blue;"
+        data-width="50"></span>
+        {{ else }}
+        <span class="iconify" data-icon="carbon:face-dissatisfied-filled" data-inline="false" style="color: green;"
+        data-width="50"></span>
+        {{ endif }}
+        </div>
+        <div class="col-sm">
+            {{player_current_value}}
+        </div>
+    </div>
+    <div class="row" style="border:1px solid">
+        <div class="col-sm">
+            Other
+        </div>
+        <div class="col-sm">
+            {{player_current_id_oth}}
+        </div>
+        <div class="col-sm">
+            {{ if player_current_type_oth == 'BLUE' }}
+            <span class="iconify" data-icon="carbon:face-satisfied-filled" data-inline="false" style="color: blue;"
+                data-width="50"></span>
+            {{ else }}
+            <span class="iconify" data-icon="carbon:face-dissatisfied-filled" data-inline="false" style="color: green;"
+                data-width="50"></span>
+            {{ endif }}
+        </div>
+        <div class="col-sm">
+            {{player_current_value_oth}}
+        </div>
+    </div>
+</div>
+
+
+{{ next_button }}
+
+{{ endblock }}

@@ -1,0 +1,40 @@
+{{ extends "global/Page.html" }}
+{{ load staticfiles otree }}
+
+{{ block title }}
+<h1>Final Results</h1>
+{{ endblock }}
+
+{{ block content }}
+
+<div class="container box">
+<p>Your total earnings in the game are {{payoff_final}}</p>
+<br>
+<div class="container" style="font-size:18pt">
+  <div class="row">
+    <div class="col">
+      &NonBreakingSpace;
+    </div>
+    <div class="col">
+      <button name="btn_submit" value="True" class="btn btn-outline-primary btn-large">
+        <span style="font-size:14pt">Finish</span>
+      </button>
+    </div>
+    <div class="col">
+      &NonBreakingSpace;
+    </div>
+  </div>
+</div>
+</div>
+
+{{ endblock }}
+
+{{ block styles }}
+
+<link href="{{ static 'styles/mystyle2.css' }}" rel="stylesheet"> -
+
+{{ endblock }}
+
+
+
+
