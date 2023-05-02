@@ -10,5 +10,5 @@
 | 4  | 18/04   |Design of an experiment (Laboratory)|
 | [#5](./5)   |[oTree: Sequential games + Page styles](./5/)|
 | [#6](./6)   |[R: Data wrangling](./6/)|
-| [#7](./7)  |[oTree: online deplyment + R: Document creation](./7/) |
+| [#7](./7)  |[oTree: online deployment + R: Document creation](./7/) |
 | [#8](./8)  |[Projects' presentation](./8/)|
