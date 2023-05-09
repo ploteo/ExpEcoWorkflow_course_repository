@@ -1,0 +1,133 @@
+---
+title: 'Experimental Economics: Data Workflow'
+author: 
+  - Matteo Ploner\inst{1}
+institute: 
+  - \inst{1} DEM-CEEL, University of Trento
+date-format: long
+# title-slide-attributes:
+#     # data-background-color: "#eb820a"
+format:
+    html:
+        embed-resources: true
+        toc: true
+        theme: Cyborg 
+editor: visual
+editor_options:
+  markdown:
+    wrap: 55
+---
+
+## Course Description
+
+```{r , echo=FALSE, warning=FALSE, message=FALSE, fig.height=6, fig.width=6, fig.align="center", dpi=300}
+library(DiagrammeR)
+```
+
+The course deals with the design of an experiment in social sciences and the management of the related data workflow . As a take-home assignment, participants are invited to develop their own experimental design and implement the related software.
+
+The following chart illustrates the workflow of the course.
+
+```{r echo=FALSE, fig.height=6, fig.width=8, message=FALSE, warning=FALSE, fig.align="center"}
+
+#| label: workflow
+#| fig-cap: "Workflow"
+
+grViz("
+      digraph contents {
+
+graph [compound = true, rankdir = LR, layout = dot, bgcolor= black]
+
+node[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]
+
+'Design'
+'Registration'
+'Programming'
+'Data collection'
+'Data organization'
+
+
+'Design' -> 'Registration' 
+'Registration' -> 'Programming'
+'Programming' -> 'Data collection'
+'Data collection' -> 'Data organization'
+
+node[fontname = Helvetica, fontcolor = black, shape = oval, style = filled, fontsize = 8, fixedsize = false, fillcolor = white]
+
+'Methodology'
+'oTree'
+'OSF'
+'Prolific'
+
+'Methodology' -> 'Design' [arrowhead = none, color=grey78]
+'OSF' -> 'Registration' [arrowhead = none, color=grey78]
+oTree -> 'Programming'[arrowhead = none, color = grey78]
+Prolific -> 'Data collection'[arrowhead = none, color = grey78]
+'Render' -> 'Data collection'[arrowhead = none, color = grey78]
+'R (tidyverse)' -> 'Data organization'[arrowhead = none, color = grey78]
+
+
+subgraph cluster_0 {
+        graph[shape = rectangle]
+        style = filled
+        fontcolor= white
+        fontname = Helvetica
+        fillcolor = DeepSkyBlue
+        label = 'GitHub'
+        
+node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]
+      'Design'
+      'Registration'
+      'Programming'
+      'Data collection'
+      'Data organization'
+        
+}
+
+}
+      ",
+    width = "100%",
+    height = "100%"
+)
+```
+
+- Design
+    - Methodological aspects of the design of an economic experiments are discussed in the classroom
+
+- Registration
+    - Illustration of the pre-registration process on [OSF](https://osf.io/) with specific attention to hypotheses and data analysis
+
+- Programming
+    - Introduction to [oTree](https://www.otree.org/) architecture and examples of experimental apps
+
+- Data collection
+    - Recruitment of participants via [Prolific](https://www.prolific.co/) and online deployment on [render.com](https://render.com/)
+
+- Data organization
+    - Collection, organization  and documentation of data in [R](htpps://cran.r-project.org)
+
+
+## Modules
+
+### 1) Methodology
+
+#### Introduction
+
+[SLIDES](./1/INTRO_printout.html)
+
+### Methdology of Experimental Economics
+
+[SLIDES](./1/METHOD_printout.html)
+
+### 2) oTree: Programming and management of online experiments
+
+### oTree: Individual decision making and strategic games
+
+### oTree: Sequential games + Style
+
+### R: Data wrangling
+
+### oTree: online deployment + R: Document creation
+
+
+<script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
