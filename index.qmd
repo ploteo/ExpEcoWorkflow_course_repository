@@ -95,16 +95,16 @@ node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategra
     - Methodological aspects of the design of an economic experiments are discussed in the classroom
 
 - Registration
-    - Illustration of the pre-registration process on [OSF](https://osf.io/) with specific attention to hypotheses and data analysis
+    - Illustration of the pre-registration process on [OSF](https://osf.io/){target="_blank"} with specific attention to hypotheses and data analysis
 
 - Programming
-    - Introduction to [oTree](https://www.otree.org/) architecture and examples of experimental apps
+    - Introduction to [oTree](https://www.otree.org/){target="_blank"} architecture and examples of experimental apps
 
 - Data collection
-    - Recruitment of participants via [Prolific](https://www.prolific.co/) and online deployment on [render.com](https://render.com/)
+    - Recruitment of participants via [Prolific](https://www.prolific.co/){target="_blank"} and online deployment on [render.com](https://render.com/){target="_blank"}
 
 - Data organization
-    - Collection, organization  and documentation of data in [R](htpps://cran.r-project.org)
+    - Collection, organization  and documentation of data in [R](htpps://cran.r-project.org){target="_blank"}
 
 
 ## Modules
@@ -113,21 +113,51 @@ node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategra
 
 #### Introduction
 
-[SLIDES](./1/INTRO_printout.html)
+[SLIDES](./1/INTRO_printout.html){target="_blank"}
 
 ### Methdology of Experimental Economics
 
-[SLIDES](./1/METHOD_printout.html)
+[SLIDES](./1/METHOD_printout.html){target="_blank"}
 
 ### 2) oTree: Programming and management of online experiments
 
-### oTree: Individual decision making and strategic games
+[SLIDES](./2/SLIDES.html){target="_blank"}
 
-### oTree: Sequential games + Style
+[CODE](./2/CODE.zip){target="_blank"}
 
-### R: Data wrangling
+### 3) oTree: Individual decision making and strategic games
 
-### oTree: online deployment + R: Document creation
+[SLIDES](./3/SLIDES.html){target="_blank"}
+
+[CODE](./3/CODE.zip){target="_blank"}
+
+### 4) oTree: Sequential games
+
+[SLIDES](./5/slidesTG_printout.html){target="_blank"}
+
+[CODE](./5/CODE/TG.zip){target="_blank"}
+
+### 5) oTree: Style
+
+[SLIDES](./5/slidesADV_printout.html){target="_blank"}
+
+[CODE](./5/CODE/styles.zip){target="_blank"}
+
+### 6) R: Data wrangling
+
+[SLIDES](./6/SLIDES_printout.html){target="_blank"}
+
+[DATA](./6/DATA.zip){target="_blank"}
+
+### 7) R: Document creation
+
+[SLIDES](./7/R_presentation_printout.html){target="_blank"}
+
+[DEMO Report](./7/Report.zip){target="_blank"}
+
+### 8) oTree: online deployment 
+
+[SLIDES](./7/oTree_deployment_printout.html){target="_blank"}
 
 
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>

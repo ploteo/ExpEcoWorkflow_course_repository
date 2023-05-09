@@ -3769,10 +3769,12 @@ color: #333333;
   <li><a href="#methodology" id="toc-methodology" class="nav-link" data-scroll-target="#methodology">1) Methodology</a></li>
   <li><a href="#methdology-of-experimental-economics" id="toc-methdology-of-experimental-economics" class="nav-link" data-scroll-target="#methdology-of-experimental-economics">Methdology of Experimental Economics</a></li>
   <li><a href="#otree-programming-and-management-of-online-experiments" id="toc-otree-programming-and-management-of-online-experiments" class="nav-link" data-scroll-target="#otree-programming-and-management-of-online-experiments">2) oTree: Programming and management of online experiments</a></li>
-  <li><a href="#otree-individual-decision-making-and-strategic-games" id="toc-otree-individual-decision-making-and-strategic-games" class="nav-link" data-scroll-target="#otree-individual-decision-making-and-strategic-games">oTree: Individual decision making and strategic games</a></li>
-  <li><a href="#otree-sequential-games-style" id="toc-otree-sequential-games-style" class="nav-link" data-scroll-target="#otree-sequential-games-style">oTree: Sequential games + Style</a></li>
-  <li><a href="#r-data-wrangling" id="toc-r-data-wrangling" class="nav-link" data-scroll-target="#r-data-wrangling">R: Data wrangling</a></li>
-  <li><a href="#otree-online-deployment-r-document-creation" id="toc-otree-online-deployment-r-document-creation" class="nav-link" data-scroll-target="#otree-online-deployment-r-document-creation">oTree: online deployment + R: Document creation</a></li>
+  <li><a href="#otree-individual-decision-making-and-strategic-games" id="toc-otree-individual-decision-making-and-strategic-games" class="nav-link" data-scroll-target="#otree-individual-decision-making-and-strategic-games">3) oTree: Individual decision making and strategic games</a></li>
+  <li><a href="#otree-sequential-games" id="toc-otree-sequential-games" class="nav-link" data-scroll-target="#otree-sequential-games">4) oTree: Sequential games</a></li>
+  <li><a href="#otree-style" id="toc-otree-style" class="nav-link" data-scroll-target="#otree-style">5) oTree: Style</a></li>
+  <li><a href="#r-data-wrangling" id="toc-r-data-wrangling" class="nav-link" data-scroll-target="#r-data-wrangling">6) R: Data wrangling</a></li>
+  <li><a href="#r-document-creation" id="toc-r-document-creation" class="nav-link" data-scroll-target="#r-document-creation">7) R: Document creation</a></li>
+  <li><a href="#otree-online-deployment" id="toc-otree-online-deployment" class="nav-link" data-scroll-target="#otree-online-deployment">8) oTree: online deployment</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -3818,8 +3820,8 @@ color: #333333;
 <p>The following chart illustrates the workflow of the course.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="htmlwidget-29b2a8d1f4191cf6c3a9" style="width:100%;height:100%;" class="grViz html-widget "></div>
-<script type="application/json" data-for="htmlwidget-29b2a8d1f4191cf6c3a9">{"x":{"diagram":"\n      digraph contents {\n\ngraph [compound = true, rankdir = LR, layout = dot, bgcolor= black]\n\nnode[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]\n\n\"Design\"\n\"Registration\"\n\"Programming\"\n\"Data collection\"\n\"Data organization\"\n\n\n\"Design\" -> \"Registration\" \n\"Registration\" -> \"Programming\"\n\"Programming\" -> \"Data collection\"\n\"Data collection\" -> \"Data organization\"\n\nnode[fontname = Helvetica, fontcolor = black, shape = oval, style = filled, fontsize = 8, fixedsize = false, fillcolor = white]\n\n\"Methodology\"\n\"oTree\"\n\"OSF\"\n\"Prolific\"\n\n\"Methodology\" -> \"Design\" [arrowhead = none, color=grey78]\n\"OSF\" -> \"Registration\" [arrowhead = none, color=grey78]\noTree -> \"Programming\"[arrowhead = none, color = grey78]\nProlific -> \"Data collection\"[arrowhead = none, color = grey78]\n\"Render\" -> \"Data collection\"[arrowhead = none, color = grey78]\n\"R (tidyverse)\" -> \"Data organization\"[arrowhead = none, color = grey78]\n\n\nsubgraph cluster_0 {\n        graph[shape = rectangle]\n        style = filled\n        fontcolor= white\n        fontname = Helvetica\n        fillcolor = DeepSkyBlue\n        label = \"GitHub\"\n        \nnode[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]\n      \"Design\"\n      \"Registration\"\n      \"Programming\"\n      \"Data collection\"\n      \"Data organization\"\n        \n}\n\n}\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-0153fb4f67a09a4d2bc9" style="width:100%;height:100%;" class="grViz html-widget "></div>
+<script type="application/json" data-for="htmlwidget-0153fb4f67a09a4d2bc9">{"x":{"diagram":"\n      digraph contents {\n\ngraph [compound = true, rankdir = LR, layout = dot, bgcolor= black]\n\nnode[fontname = Helvetica, fontcolor = black, shape = rounded, fixedsize = true, width = 1.2, style = filled, fillcolor = Honeydew, fontsize = 8]\n\n\"Design\"\n\"Registration\"\n\"Programming\"\n\"Data collection\"\n\"Data organization\"\n\n\n\"Design\" -> \"Registration\" \n\"Registration\" -> \"Programming\"\n\"Programming\" -> \"Data collection\"\n\"Data collection\" -> \"Data organization\"\n\nnode[fontname = Helvetica, fontcolor = black, shape = oval, style = filled, fontsize = 8, fixedsize = false, fillcolor = white]\n\n\"Methodology\"\n\"oTree\"\n\"OSF\"\n\"Prolific\"\n\n\"Methodology\" -> \"Design\" [arrowhead = none, color=grey78]\n\"OSF\" -> \"Registration\" [arrowhead = none, color=grey78]\noTree -> \"Programming\"[arrowhead = none, color = grey78]\nProlific -> \"Data collection\"[arrowhead = none, color = grey78]\n\"Render\" -> \"Data collection\"[arrowhead = none, color = grey78]\n\"R (tidyverse)\" -> \"Data organization\"[arrowhead = none, color = grey78]\n\n\nsubgraph cluster_0 {\n        graph[shape = rectangle]\n        style = filled\n        fontcolor= white\n        fontname = Helvetica\n        fillcolor = DeepSkyBlue\n        label = \"GitHub\"\n        \nnode[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategray, style=filled, fillcolor = LemonChiffon, fontsize=10, fixedsize = true,  width=1.5]\n      \"Design\"\n      \"Registration\"\n      \"Programming\"\n      \"Data collection\"\n      \"Data organization\"\n        \n}\n\n}\n      ","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <ul>
@@ -3829,19 +3831,19 @@ color: #333333;
 </ul></li>
 <li>Registration
 <ul>
-<li>Illustration of the pre-registration process on <a href="https://osf.io/">OSF</a> with specific attention to hypotheses and data analysis</li>
+<li>Illustration of the pre-registration process on <a href="https://osf.io/" target="_blank">OSF</a> with specific attention to hypotheses and data analysis</li>
 </ul></li>
 <li>Programming
 <ul>
-<li>Introduction to <a href="https://www.otree.org/">oTree</a> architecture and examples of experimental apps</li>
+<li>Introduction to <a href="https://www.otree.org/" target="_blank">oTree</a> architecture and examples of experimental apps</li>
 </ul></li>
 <li>Data collection
 <ul>
-<li>Recruitment of participants via <a href="https://www.prolific.co/">Prolific</a> and online deployment on <a href="https://render.com/">render.com</a></li>
+<li>Recruitment of participants via <a href="https://www.prolific.co/" target="_blank">Prolific</a> and online deployment on <a href="https://render.com/" target="_blank">render.com</a></li>
 </ul></li>
 <li>Data organization
 <ul>
-<li>Collection, organization and documentation of data in <a href="htpps://cran.r-project.org">R</a></li>
+<li>Collection, organization and documentation of data in <a href="htpps://cran.r-project.org" target="_blank">R</a></li>
 </ul></li>
 </ul>
 </section>
@@ -3851,27 +3853,46 @@ color: #333333;
 <h3 class="anchored" data-anchor-id="methodology">1) Methodology</h3>
 <section id="introduction" class="level4">
 <h4 class="anchored" data-anchor-id="introduction">Introduction</h4>
-<p><a href="./1/INTRO_printout.html">SLIDES</a></p>
+<p><a href="./1/INTRO_printout.html" target="_blank">SLIDES</a></p>
 </section>
 </section>
 <section id="methdology-of-experimental-economics" class="level3">
 <h3 class="anchored" data-anchor-id="methdology-of-experimental-economics">Methdology of Experimental Economics</h3>
-<p><a href="./1/METHOD_printout.html">SLIDES</a></p>
+<p><a href="./1/METHOD_printout.html" target="_blank">SLIDES</a></p>
 </section>
 <section id="otree-programming-and-management-of-online-experiments" class="level3">
 <h3 class="anchored" data-anchor-id="otree-programming-and-management-of-online-experiments">2) oTree: Programming and management of online experiments</h3>
+<p><a href="./2/SLIDES.html" target="_blank">SLIDES</a></p>
+<p><a href="./2/CODE.zip" target="_blank">CODE</a></p>
 </section>
 <section id="otree-individual-decision-making-and-strategic-games" class="level3">
-<h3 class="anchored" data-anchor-id="otree-individual-decision-making-and-strategic-games">oTree: Individual decision making and strategic games</h3>
+<h3 class="anchored" data-anchor-id="otree-individual-decision-making-and-strategic-games">3) oTree: Individual decision making and strategic games</h3>
+<p><a href="./3/SLIDES.html" target="_blank">SLIDES</a></p>
+<p><a href="./3/CODE.zip" target="_blank">CODE</a></p>
 </section>
-<section id="otree-sequential-games-style" class="level3">
-<h3 class="anchored" data-anchor-id="otree-sequential-games-style">oTree: Sequential games + Style</h3>
+<section id="otree-sequential-games" class="level3">
+<h3 class="anchored" data-anchor-id="otree-sequential-games">4) oTree: Sequential games</h3>
+<p><a href="./5/slidesTG_printout.html" target="_blank">SLIDES</a></p>
+<p><a href="./5/CODE/TG.zip" target="_blank">CODE</a></p>
+</section>
+<section id="otree-style" class="level3">
+<h3 class="anchored" data-anchor-id="otree-style">5) oTree: Style</h3>
+<p><a href="./5/slidesADV_printout.html" target="_blank">SLIDES</a></p>
+<p><a href="./5/CODE/styles.zip" target="_blank">CODE</a></p>
 </section>
 <section id="r-data-wrangling" class="level3">
-<h3 class="anchored" data-anchor-id="r-data-wrangling">R: Data wrangling</h3>
+<h3 class="anchored" data-anchor-id="r-data-wrangling">6) R: Data wrangling</h3>
+<p><a href="./6/SLIDES_printout.html" target="_blank">SLIDES</a></p>
+<p><a href="./6/DATA.zip" target="_blank">DATA</a></p>
 </section>
-<section id="otree-online-deployment-r-document-creation" class="level3">
-<h3 class="anchored" data-anchor-id="otree-online-deployment-r-document-creation">oTree: online deployment + R: Document creation</h3>
+<section id="r-document-creation" class="level3">
+<h3 class="anchored" data-anchor-id="r-document-creation">7) R: Document creation</h3>
+<p><a href="./7/R_presentation_printout.html" target="_blank">SLIDES</a></p>
+<p><a href="./7/Report.zip" target="_blank">DEMO Report</a></p>
+</section>
+<section id="otree-online-deployment" class="level3">
+<h3 class="anchored" data-anchor-id="otree-online-deployment">8) oTree: online deployment</h3>
+<p><a href="./7/oTree_deployment_printout.html" target="_blank">SLIDES</a></p>
 <script>/**
 * (c) Iconify
 *
