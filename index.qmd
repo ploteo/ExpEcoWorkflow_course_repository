@@ -160,4 +160,6 @@ node[fontname = Helvetica, fontcolor = black, shape = oval, color = darkslategra
 [SLIDES](./7/oTree_deployment_printout.html){target="_blank"}
 
 
+> The content of this site is licensed under the MIT license
+
 <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
