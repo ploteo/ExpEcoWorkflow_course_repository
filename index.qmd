@@ -11,11 +11,7 @@ format:
     html:
         embed-resources: true
         toc: true
-        theme: Cyborg 
-editor: visual
-editor_options:
-  markdown:
-    wrap: 55
+        theme: united
 ---
 
 ## Course Description
